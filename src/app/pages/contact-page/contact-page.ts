@@ -1,38 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContactListItem } from '../../components/contact-list-item/contact-list-item';
 import { Contact } from '../../interfaces/contact';
-
+import { AuthService } from '../../service/auth-service';
+import { ContactsService } from '../../services/contacts-service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-contacts-page',
-  imports: [RouterModule,ContactListItem],
+  imports: [RouterModule,ContactListItem, FormsModule],
   templateUrl: './contacts-page.html',
   styleUrl: './contacts-page.scss'
 })
 export class ContactsPage {
+  authService = inject(AuthService);
+  contactsService = inject(ContactsService);
 
-  listaContactos:Contact[] = [
-    {
-      id: "1",
-      firstName: 'alvaro',
-      lastName: "dainesi",
-      number: "3476123123",
-      image: "",
-      company: "",
-      address: "",
-      email: 'adainesi@austral.edu.ar',
-      isFavourite: true,
-    },
-    {
-      id: "2",
-      firstName: 'felipe',
-      lastName: "nina",
-      number: "3471234234",
-      image: "",
-      company: "",
-      address: "",
-      email: 'fnina@austral.edu.ar'
-    },
-  ]
+  createContact(form:any){
+    const nuevoContacto: NewContact ={
+      firstName: form.firstName,
+      lastName: form.lastName,
+      address: form.address,
+      email: form.email,
+      image: form.image,
+      number: form.number,
+      company: form.company,
+      isFavorite: form.isFavorite
+    }
 
-}
+    this.contactsService.createContact(nuevoContacto)
+  
+
