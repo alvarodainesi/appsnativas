@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-new-edit-contact',
   imports: [],
   templateUrl: './new-edit-contact.html',
-  styleUrl: './new-edit-contact.css'
+  styleUrl: './new-edit-contact.scss'
 })
 export class NewEditContact {
 
