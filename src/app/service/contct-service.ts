@@ -67,15 +67,14 @@ export class ContactsService {
         body: JSON.stringify(contactoEditado)
       });
     if(!res.ok) return;
-    const resContact:Contact = await res.json();
     /** Edita la lista actual de contactos reemplazando sólamente el que editamos */
     this.contacts = this.contacts.map(contact => {
-      if(contact.id === resContact.id) {
-        return resContact;
+      if(contact.id === contactoEditado.id) {
+        return contactoEditado;
       };
       return contact;
     });
-    return resContact;
+    return contactoEditado;
   }
 
   /** Borra un contacto */
@@ -94,7 +93,7 @@ export class ContactsService {
 
   /** Marca/desmarca un contacto como favorito */
   async setFavourite(id:string | number ) {
-    const res = await fetch(this.URL_BASE+"/"+id+"favorite", 
+    const res = await fetch(this.URL_BASE+"/"+id+"/favorite", 
       {
         method: "POST",
         headers: {
