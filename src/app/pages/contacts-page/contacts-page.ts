@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ContactListItem } from '../../component/contact-list-item/contact-list-item';
+import { ContactListItem } from '../../components/contact-list-item/contact-list-item';
 import { Contact, NewContact } from '../../interfaces/contact';
-import { AuthService } from '../../service/auth-service';
-import { ContactsService } from '../../service/contct-service';
+import { AuthService } from '../../services/auth-service';
+import { ContactsService } from '../../services/contacts-service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
