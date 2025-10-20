@@ -1,1 +1,116 @@
 @use "./../../../../public/styles/forms-pages.scss";
+/* === Fondo general === */
+.register-container {
+    background-color: #0d0f1a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* === Card principal === */
+  .register-card {
+    background-color: #181b25;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* === Título === */
+  .register-card h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* === Form === */
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* === Inputs === */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input {
+    width: 100%;
+    height: 42px;
+    border-radius: 6px;
+    border: none;
+    background-color: #2a2d39;
+    color: #ffffff;
+    font-size: 0.9rem;
+    padding: 0 12px;
+    transition: all 0.2s ease;
+  }
+  
+  input::placeholder {
+    color: #b3b3b3;
+  }
+  
+  input:focus {
+    outline: none;
+    background-color: #323544;
+    box-shadow: 0 0 6px rgba(124, 111, 255, 0.5);
+  }
+  
+  /* === Botón === */
+  button {
+    width: 100%;
+    height: 42px;
+    background-color: #7c6fff;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  button:hover:enabled {
+    background-color: #695af5;
+    transform: scale(1.02);
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* === Texto inferior === */
+  .login-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #d1d5db;
+    text-align: center;
+  }
+  
+  .login-link a {
+    color: #b78fff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* === Host Angular === */
+  :host {
+    display: block;
+    background-color: #0d0f1a;
+    min-height: 100vh;
+  }
+  
