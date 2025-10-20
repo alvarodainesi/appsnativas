@@ -1,16 +1,33 @@
-<!-- <a routerLink="login">Ir a login</a> -->
-<div>
-  <span>Nombre</span>
-  <span>Telefono</span>
-  <span>Email</span>
-  <span>Grupos</span>
-  <span>Acciones</span>
- </div>
- <ul>
-  @for (contactoIndividual of contactsService.contacts; track $index) {
-    <a [routerLink]="['/contacts',contactoIndividual.id]">
-      <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
-    </a>
-  }
- </ul>
- <a routerLink="/contacts/new">+</a>
+
+<div class="contacts-container">
+  <header class="contacts-header">
+    <h1>Agenda</h1>
+  </header>
+
+  
+  <div class="contacts-table">
+    <div class="contacts-table-header">
+      <span>Nombre</span>
+      <span>Teléfono</span>
+      <span>Email</span>
+      <span>Grupos</span>
+      <span>Acciones</span>
+    </div>
+
+    <ul class="contacts-list">
+      @for (contactoIndividual of contactsService.contacts; track $index) {
+        <li>
+          <a [routerLink]="['/contacts', contactoIndividual.id]" class="contact-item">
+            <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
+          </a>
+        </li>
+      }
+      @empty {
+        <li class="empty-message">No hay contactos</li>
+      }
+    </ul>
+  </div>
+
+
+  <a routerLink="/contacts/new" class="floating-button">+</a>
+</div>
