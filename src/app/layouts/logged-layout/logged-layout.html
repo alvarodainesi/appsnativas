@@ -1,37 +1,36 @@
 <div class="sidebar">
-    <div class="sidebar-header">
-      <span class="menu-icon">☰</span>
-      <h2>Agenda</h2>
-    </div>
-  
-    <nav class="sidebar-nav">
-      <a routerLink="/" routerLinkActive="active" class="nav-item">
-        <span class="icon">👤</span>
-        Contactos
-      </a>
-      <div class="groups-section">
-        <span class="groups-title">Grupos</span>
-        <a routerLink="/groups" routerLinkActive="active" class="nav-item sub-item">
-          <span class="icon">＋</span>
-          Nuevo
-        </a>
-      </div>
-    </nav>
-  
-    <div class="sidebar-footer">
-      <a class="nav-item">
-        <span class="icon">💾</span>
-        Exportar
-      </a>
-      <button (click)="openLogoutModal()" class="nav-item logout">
-        <span class="icon">↪</span>
-        Log out
-      </button>
-    </div>
+  <div class="sidebar-header">
+    <span class="menu-icon">☰</span>
+    <h2>Agenda</h2>
   </div>
-  
-  
-  <div class="main-content">
-    <router-outlet></router-outlet>
+
+  <nav class="sidebar-nav">
+    <a routerLink="/" routerLinkActive="active" class="nav-item">
+      <span class="icon">👤</span>
+      Contactos
+    </a>
+    <div class="groups-section">
+      <span class="groups-title">Grupos</span>
+      <a routerLink="/groups" routerLinkActive="active" class="nav-item sub-item">
+        <span class="icon">＋</span>
+        Nuevo
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a class="nav-item">
+      <span class="icon">💾</span>
+      Exportar
+    </a>
+    <button (click)="openLogoutModal()" class="nav-item logout">
+      <span class="icon">↪</span>
+      Log out
+    </button>
   </div>
-  
+</div>
+
+
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

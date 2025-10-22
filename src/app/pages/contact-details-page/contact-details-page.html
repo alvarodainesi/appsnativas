@@ -1,19 +1,44 @@
-@if(cargandoContacto){
-    <p>Cargando contacto...</p>
-  } @else if(!contacto) {
-    <p>No se encontró el contacto</p>
-  } @else {
-    <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
-    <p>Email: {{contacto.email}}</p>
-    <p>Teléfono: {{contacto.number}}</p>
-  @if (contacto.isFavorite) {
-    <p>⭐</p>
-    <button (click)="toggleFavorite()">Desmarcar favorito</button>
-  } @else {
-    <button (click)="toggleFavorite()">Marcar como favorito</button>
-  }
-    <p>
-      <a [routerLink]="['/contacts',idContacto(),'edit']">Editar</a>
-    </p>
-    <button (click)="deleteContact()">Eliminar</button>
-  }
+@if (cargandoContacto) {
+  <p class="estado">Cargando contacto...</p>
+} @else if (!contacto) {
+  <p class="estado error">No se encontró el contacto</p>
+} @else {
+  <div class="contacto-detalle">
+
+    <div class="card-contacto">
+      <div class="header-card">
+        <h2>Datos de contacto</h2>
+        @if (contacto.isFavorite) {
+          <span class="estrella">⭐</span>
+        }
+      </div>
+
+      <div class="info-contacto">
+        <div class="dato">
+          <span class="icono">📞</span>
+          <span>{{ contacto.number }}</span>
+        </div>
+        <div class="dato">
+          <span class="icono">📧</span>
+          <span>{{ contacto.email }}</span>
+        </div>
+      </div>
+
+      <div class="acciones">
+        <a class="accion editar" [routerLink]="['/contacts', idContacto(), 'edit']">
+          ✏️ Editar
+        </a>
+        <button class="accion eliminar" (click)="deleteContact()">🗑️ Eliminar</button>
+      </div>
+    </div>
+
+    <div class="card-grupos">
+      <h2>Grupos</h2>
+      <div class="contenido-grupos">
+        <a href="#" class="editar-grupos">✏️ Agregar o eliminar de grupos</a>
+        <p>El contacto no se encuentra en ningún grupo</p>
+      </div>
+    </div>
+
+  </div>
+}
